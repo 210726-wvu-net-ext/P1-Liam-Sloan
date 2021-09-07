@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RestaurantReviews.Testing
 {
-    public class UnitTest1
+    public class UnitTesting
     {
 
         [Fact]
@@ -138,6 +138,36 @@ namespace RestaurantReviews.Testing
             var adminController = new AdminController(mockRepo.Object, logger.Object);
 
             var result = adminController.Index();
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+            Assert.Equal(viewResult, result);
+        }
+
+        [Fact]
+        public void ProveThatUserNamePageIsCalled()
+        {
+            var logger = new Mock<ILogger<UserController>>();
+            var mockRepo = new Mock<IRepository>();
+
+            var userController = new UserController(mockRepo.Object, logger.Object);
+
+            var result = userController.SignIn();
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+            Assert.Equal(viewResult, result);
+        }
+
+        [Fact]
+        public void TestRegistrationPage()
+        {
+            var logger = new Mock<ILogger<UserController>>();
+            var mockRepo = new Mock<IRepository>();
+
+            var userController = new UserController(mockRepo.Object, logger.Object);
+
+            var result = userController.Register();
 
             var viewResult = Assert.IsType<ViewResult>(result);
 
