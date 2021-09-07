@@ -34,6 +34,7 @@ namespace RestaurantReviews.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult SignIn(SignedInUser user)
         {
             TempData.Remove("isAdmin");
@@ -64,6 +65,7 @@ namespace RestaurantReviews.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(RegisteredUser user)
         {
             if (!ModelState.IsValid)

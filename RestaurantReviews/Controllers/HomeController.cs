@@ -30,6 +30,7 @@ namespace RestaurantReviews.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult GetReviews(string name, int zipcode)
         {
             List<Data.Models.Review> foundReviews = _appRepo.GetReviews(name, zipcode);
@@ -68,6 +69,7 @@ namespace RestaurantReviews.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult ViewUsers()
         {
             return View();

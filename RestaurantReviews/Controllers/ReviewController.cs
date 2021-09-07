@@ -26,6 +26,8 @@ namespace RestaurantReviews.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult LeaveReview(CreatedReview createdReview)
         {
             if (!ModelState.IsValid)
