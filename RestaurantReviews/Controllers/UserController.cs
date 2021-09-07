@@ -13,6 +13,10 @@ namespace RestaurantReviews.Controllers
     public class UserController : Controller
     {
 
+        /// <summary>
+        /// Handles action methods associated with logging in, and general user functions
+        /// </summary>
+
         private IRepository _appRepo;
         private readonly ILogger _logger;
 
@@ -38,6 +42,7 @@ namespace RestaurantReviews.Controllers
         public IActionResult SignIn(SignedInUser user)
         {
             TempData.Remove("isAdmin");
+            TempData.Remove("user");
             if (!ModelState.IsValid)
             {
                 return View(user);

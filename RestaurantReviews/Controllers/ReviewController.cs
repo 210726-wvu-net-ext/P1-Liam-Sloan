@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviews.Controllers
 {
+
+    /// <summary>
+    /// This controller handles the functionality of writing reviews.
+    /// </summary>
+
     public class ReviewController : Controller
     {
         private IRepository _appRepo;
@@ -48,11 +53,12 @@ namespace RestaurantReviews.Controllers
                 };
                 _appRepo.WriteReview(user, newReview.Restaurant, newReview.Zipcode, newReview.Review1, newReview.Stars);
                 _logger.LogCritical("A user created a review");
+                TempData.Keep("user");
+                return Redirect("~/Home");
             } else {
                 ViewData["error"] = "You must log in to create a review.";
+                return View("Index");
             }
-            TempData.Keep("user");
-            return Redirect("~/Home");
         }
     }
 }

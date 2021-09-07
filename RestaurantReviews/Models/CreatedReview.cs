@@ -8,6 +8,11 @@ namespace RestaurantReviews.Models
 {
     public class CreatedReview
     {
+
+        /// <summary>
+        /// Validation for creating a review
+        /// </summary>
+
         public int Id { get; set; }
 
         [Required]

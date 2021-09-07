@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviews.Controllers
 {
+    /// <summary>
+    /// Controls admin functionality
+    /// </summary>
+
     public class AdminController : Controller
     {
         private IRepository _appRepo;

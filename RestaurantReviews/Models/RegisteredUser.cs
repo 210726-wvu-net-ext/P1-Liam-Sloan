@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviews.Models
 {
+
+    /// <summary>
+    /// Validation for user registration
+    /// </summary>
+
     public class RegisteredUser
     {
         [Required]

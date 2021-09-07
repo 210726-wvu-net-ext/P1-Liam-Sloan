@@ -12,6 +12,11 @@ using System.Threading.Tasks;
 
 namespace RestaurantReviews.Controllers
 {
+
+    /// <summary>
+    /// This controller handles the methods associated with displaying reviews and searches
+    /// </summary>
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
